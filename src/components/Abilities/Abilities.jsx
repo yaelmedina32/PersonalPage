@@ -8,7 +8,7 @@ const technologies = [
         icon: '/imgs/Angular.png',
         description: 'Framework for building dynamic web applications',
         category: 'Frontend',
-        experience: '2.5 years'
+        experience: '3 years'
     },
     {
         id: 'react',
@@ -56,7 +56,7 @@ const technologies = [
         icon: '/imgs/Docker.svg',
         description: 'Containerization platform for deployment',
         category: 'DevOps',
-        experience: '2 years'
+        experience: '1 year'
     },
     {
         id: 'git',
@@ -104,6 +104,13 @@ const projects = [
         description: 'Personal portfolio website showcasing my work.',
         technologies: ['react'],
         developingTime: '1 week',
+    },
+    
+    {
+        title: 'Ticket Management System',
+        description: 'System for managing support tickets in a company.',
+        technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git'],
+        developingTime: '1 month',
     },
 ];
 
