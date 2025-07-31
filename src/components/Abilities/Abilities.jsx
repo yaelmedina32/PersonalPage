@@ -65,8 +65,19 @@ const technologies = [
         description: 'Version control system for code management',
         category: 'Tools',
         experience: '3 years'
-    }
+    },
+    
+    {
+        id: 'tailwind',
+        name: 'Tailwind CSS',
+        icon: '/imgs/tailwind.png',
+        description: 'Utility-first CSS framework for rapid UI development',
+        category: 'Frontend',
+        experience: '1 year'
+    },
 ];
+
+
 
 const projects = [
     {
@@ -102,17 +113,17 @@ const projects = [
     {
         title: 'Portfolio Website',
         description: 'Personal portfolio website showcasing my work.',
-        technologies: ['react'],
+        technologies: ['react', 'tailwind'],
         developingTime: '1 week',
     },
-    
     {
         title: 'Ticket Management System',
         description: 'System for managing support tickets in a company.',
-        technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git'],
+        technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git', 'tailwind'],
         developingTime: '1 month',
     },
 ];
+
 
 const Abilities = () => {
     const [selectedTech, setSelectedTech] = useState(null);
