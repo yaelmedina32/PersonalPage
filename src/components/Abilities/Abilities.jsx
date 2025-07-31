@@ -157,9 +157,9 @@ const Abilities = () => {
                     <div className="projects-instruction">
                         <div className="instruction-icon">💡</div>
                         <p className="instruction-text">
-                            <strong>¿Quieres ver mis proyectos?</strong> 
+                            <strong>Want to see my projects?</strong>
                             <br />
-                            Haz clic en cualquier tecnología para descubrir los proyectos donde la he utilizado.
+                            Click on any technology to discover the projects where I've used it.
                         </p>
                     </div>
                 </div>
@@ -189,7 +189,7 @@ const Abilities = () => {
                                             <span className="tech-experience">{tech.experience}</span>
                                         </div>
                                         <div className="click-indicator">
-                                            <span>👆 Click para ver proyectos</span>
+                                            <span>👆 Click to see projects</span>
                                         </div>
                                     </div>
                                 ))}
