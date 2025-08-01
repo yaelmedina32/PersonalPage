@@ -221,7 +221,7 @@ const Abilities = () => {
                     {filteredProjects.length > 0 && (
                         <div className="projects-showcase">
                             <h3 className="showcase-title">
-                                🚀 Proyectos usando {technologies.find(t => t.id === selectedTech)?.name}
+                                🚀 Projects using {technologies.find(t => t.id === selectedTech)?.name}
                             </h3>
                             <div className="projects-grid">
                                 {filteredProjects.map((project, index) => (
