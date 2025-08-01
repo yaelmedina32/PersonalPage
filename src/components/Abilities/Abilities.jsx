@@ -102,13 +102,13 @@ const projects = [
         title: 'ERP for Grupo Soldi',
         description: 'Enterprise Resource Planning system for Grupo Soldi.',
         technologies: ['angular', 'nodejs', 'sqlserver', 'docker', 'git'],
-        developingTime: '2.5 years',
+        developingTime: '3 years (actual)',
     },
     {
         title: 'Mobile ERP',
         description: 'Mobile App for business processes in Grupo Soldi.',
         technologies: ['flutter', 'nodejs', 'sqlserver', 'docker', 'git'],
-        developingTime: '2 years',
+        developingTime: '2 years (actual)',
     },
     {
         title: 'Portfolio Website',
