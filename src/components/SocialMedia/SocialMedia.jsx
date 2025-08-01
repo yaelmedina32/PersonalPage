@@ -68,44 +68,14 @@ const SocialMedia = () => {
 
                 {/* Contact Form Section */}
                 <div className="contact-section">
-                    <div className="contact-card glass">
-                        <h3 className="contact-title">Send me a message</h3>
-                        <p className="contact-description">
-                            Have a project in mind? Let's discuss how we can work together.
-                        </p>
-                        <form className="contact-form">
-                            <div className="form-group">
-                                <input 
-                                    type="text" 
-                                    placeholder="Your name" 
-                                    className="form-input"
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <input 
-                                    type="email" 
-                                    placeholder="your.email@example.com" 
-                                    className="form-input"
-                                    required
-                                />
-                            </div>
-                            <div className="form-group">
-                                <textarea 
-                                    placeholder="Tell me about your project..." 
-                                    className="form-textarea"
-                                    rows="4"
-                                    required
-                                ></textarea>
-                            </div>
-                            <button type="submit" className="form-submit hover-lift">
-                                Send Message
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
+                    <a href="mailto:yaelmedina880@gmail.com" className="contact-email social-card">
+                        <div className="contact-card glass">
+                            <h3 className="contact-title">Send me a message</h3>
+                            <p className="contact-description">
+                                Have a project in mind? Let's discuss how we can work together.
+                            </p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

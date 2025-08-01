@@ -83,7 +83,7 @@ const AboutMe = () => {
                             </div>
                         </div>
                         
-                        <div className="hero-image">
+                        <div className='flex justify-center sm:justify-center md:justify-start lg:justify-end'>
                             <div className="image-container">
                                 <img src="/assets/about.jpg" alt="Gerardo" className="profile-image"/>
                                 <div className="image-glow"></div>
@@ -133,7 +133,7 @@ const AboutMe = () => {
                             </div>
                         </div>
                         
-                        <div className="hobbies-image">
+                        <div className="hobbies-image flex justify-center sm:justify-center md:justify-start lg:justify-end">
                             <div className="image-container">
                                 <img src="/assets/iglesia.jpg" alt="Hobbies" className="hobby-image"/>
                                 <div className="image-overlay"></div>
