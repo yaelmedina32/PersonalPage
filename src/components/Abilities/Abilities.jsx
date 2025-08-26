@@ -344,9 +344,14 @@ const Abilities = () => {
                                                 <span key={tech} className="tech-tag">{tech}</span>
                                             ))}
                                         </div>
-                                        <div className="project-gallery-hint">
-                                            <span>🖼️ Ver galería</span>
-                                        </div>
+                                        {
+                                            project.projectId === 'portfolio' ? (
+                                                null
+                                                
+                                            ) : <div className="project-gallery-hint">
+                                                    <span>🖼️ See Gallery</span>
+                                                </div>
+                                        }
                                     </div>
                                 ))}
                             </div>
