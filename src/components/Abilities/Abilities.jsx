@@ -322,9 +322,9 @@ const Abilities = () => {
                             <div className="projects-instruction-gallery">
                                 <div className="instruction-icon">📸</div>
                                 <p className="instruction-text">
-                                    <strong>¡Explora las imágenes!</strong>
+                                    <strong>¡Explore the gallery!</strong>
                                     <br />
-                                    Haz clic en cualquier proyecto para ver capturas de pantalla y detalles visuales.
+                                    Click on any project to see screenshots and visual details.
                                 </p>
                             </div>
                             <div className="projects-grid">
