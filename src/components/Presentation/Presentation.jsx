@@ -18,11 +18,11 @@ const Presentation = () => {
                         I craft digital experiences with clean code and modern design.
                         Passionate about creating solutions that make a difference.
                     </p>
-                    <div className="hero-actions">
+                    <div className="hero-actions" onClick={() => window.location.href = '/social'}>
                         <button className="btn-primary hover-lift">
                             Let's talk
                         </button>
-                        <button className="btn-secondary hover-lift">
+                        <button className="btn-secondary hover-lift" onClick={() => window.location.href = '/technologies'}>
                             View work
                         </button>
                     </div>
