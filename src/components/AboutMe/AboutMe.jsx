@@ -40,7 +40,7 @@ const AboutMe = () => {
                 {/* Hero Section */}
                 <section className="about-hero">
                     <div className="hero-content">
-                        <div className="hero-text">
+                        <div className="hero-text-about">
                             <div className="section-badge">
                                 <span className="badge-dot"></span>
                                 About me
@@ -121,6 +121,10 @@ const AboutMe = () => {
                                 staying active, or diving into a good book. I believe in 
                                 maintaining a healthy work-life balance.
                             </p>
+                        </div>
+                        
+                        <div className="hobbies-image flex justify-center sm:justify-center md:justify-start lg:justify-end">
+                           
                             
                             <div className="hobbies-grid">
                                 {hobbies.map((hobby, index) => (
@@ -129,13 +133,6 @@ const AboutMe = () => {
                                         <span className="hobby-name">{hobby.name}</span>
                                     </div>
                                 ))}
-                            </div>
-                        </div>
-                        
-                        <div className="hobbies-image flex justify-center sm:justify-center md:justify-start lg:justify-end">
-                            <div className="image-container">
-                                <img src="/assets/iglesia.jpg" alt="Hobbies" className="hobby-image"/>
-                                <div className="image-overlay"></div>
                             </div>
                         </div>
                     </div>
