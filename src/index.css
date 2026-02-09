@@ -8,6 +8,8 @@
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --border-subtle: #334155;
+  --accent-download: #4ade80;
+  --accent-download-hover: #34d399;
 }
 
 body {

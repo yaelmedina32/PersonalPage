@@ -46,12 +46,11 @@ const AboutMe = () => {
                                 About me
                             </div>
                             <h1 className="hero-title">
-                                I'm <span className="gradient-text">Gerardo</span>,
-                                <br />a passionate developer
+                                Fullstack Software Engineer with ~3 years of experience working on production systems
                             </h1>
                             <p className="hero-description">
-                                I create digital experiences with clean code and modern design. 
-                                I enjoy learning new technologies and applying them to solve real-world problems.
+                              My work focuses on Angular and React frontends, Node.js and Python backends, SQL databases, CI/CD pipelines, and automation. 
+                            <br /> I've worked on internal systems, reporting automation, and AI-powered solutions to improve visibility and decision-making.
                             </p>
                             
                             {/* Social Links */}
@@ -83,12 +82,12 @@ const AboutMe = () => {
                             </div>
                         </div>
                         
-                        <div className='flex justify-center sm:justify-center md:justify-start lg:justify-end'>
+                        {/* <div className='flex justify-center sm:justify-center md:justify-start lg:justify-end'>
                             <div className="image-container">
                                 <img src="/assets/about.jpg" alt="Gerardo" className="profile-image"/>
                                 <div className="image-glow"></div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 

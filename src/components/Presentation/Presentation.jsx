@@ -1,6 +1,16 @@
 import React from 'react';
 import './Presentation.css';
 
+const downloadCV = () => {
+    const cvUrl = '/assets/CV Gerardo Medina.pdf';
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'CV Gerardo Medina.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 const Presentation = () => {
     return (
         <section className="hero-section">
@@ -11,14 +21,16 @@ const Presentation = () => {
                         Available for work
                     </div>
                     <h1 className="hero-title">
-                        Hi, I'm <span className="gradient-text">Gerardo</span>
-                        <br />Web Developer
+                        I am <span className="gradient-text">Gerardo Medina</span>
+                        <br />
                     </h1>
                     <p className="hero-description">
-                        I craft digital experiences with clean code and modern design.
-                        Passionate about creating solutions that make a difference.
+                        Fullstack Software Engineer focused on Automation, CI/CD and Applied AI
                     </p>
                     <div className="hero-actions">
+                        <button className="btn-download hover-lift" onClick={downloadCV}>
+                            Download CV
+                        </button>
                         <button className="btn-primary hover-lift" onClick={() => window.location.href = '/social'}>
                             Let's talk
                         </button>
@@ -29,7 +41,7 @@ const Presentation = () => {
                 </div>
                 <div className="hero-image">
                     <div className="image-container">
-                        <img src="/assets/yo.jpg" alt="Gerardo" className="profile-image"/>
+                        <img src="/imgs/presentacion.png" alt="Gerardo" className="profile-image"/>
                         <div className="image-glow"></div>
                     </div>
                 </div>

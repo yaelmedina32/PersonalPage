@@ -16,7 +16,7 @@ const NavBar = () => {
     <nav className="navbar glass">
       <a href="/" className='logo-text logoPortfolio'>
         <span className="logo-dot">•</span>
-        Portfolio
+        Gerardo Medina
       </a>
       
       {/* Botón hamburguesa */}

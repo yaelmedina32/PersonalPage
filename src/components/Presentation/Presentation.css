@@ -75,6 +75,16 @@
   font-size: 1rem;
 }
 
+.btn-download{
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-download), var(--accent-download-hover));
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+
 .btn-secondary {
   padding: 0.875rem 2rem;
   background: transparent;
@@ -93,15 +103,15 @@
 
 .image-container {
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 }
 
 .profile-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 90%;
   position: relative;
   z-index: 2;
 }
@@ -113,7 +123,7 @@
   right: 20px;
   bottom: 20px;
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-  border-radius: 20px;
+  border-radius: 40%;
   filter: blur(20px);
   opacity: 0.3;
   z-index: 1;
