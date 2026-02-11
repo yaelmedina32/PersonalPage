@@ -25,7 +25,7 @@ const Presentation = () => {
                         <br />
                     </h1>
                     <p className="hero-description">
-                        Fullstack Software Engineer focused on Automation, CI/CD and Applied AI
+                        I build production-ready web systems, automate critical workflows, and apply AI to real business data.
                     </p>
                     <div className="hero-actions">
                         <button className="btn-download hover-lift" onClick={downloadCV}>

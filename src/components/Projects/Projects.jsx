@@ -70,6 +70,28 @@ const Projects = () => {
             duration: "1 week",
             demoUrl: "#",
             codeUrl: "https://github.com/yaelmedina32"
+        },
+        {
+            id: 7,
+            title: "Workflow Automation",
+            description: "Workflow automation tool for connecting different services.",
+            technologies: ["Node.js", "n8n", "SQL Server", "GMail", "Outlook"],
+            category: "automation",
+            status: "Live",
+            duration: "6 months",
+            demoUrl: "#",
+            codeUrl: "https://github.com/yaelmedina32"
+        },
+        {
+            id: 8,
+            title: "AI Chatbot",
+            description: "AI-powered chatbot for customer support and automation.",
+            technologies: ["Python", "Langchain", "Gemini"],
+            category: "ai",
+            status: "Live",
+            duration: "6 months",
+            demoUrl: "#",
+            codeUrl: "https://github.com/yaelmedina32"
         }
     ];
 
@@ -78,7 +100,9 @@ const Projects = () => {
         { id: 'enterprise', name: 'Enterprise', count: projects.filter(p => p.category === 'enterprise').length },
         { id: 'web', name: 'Web', count: projects.filter(p => p.category === 'web').length },
         { id: 'mobile', name: 'Mobile', count: projects.filter(p => p.category === 'mobile').length },
-        { id: 'backend', name: 'Backend', count: projects.filter(p => p.category === 'backend').length }
+        { id: 'backend', name: 'Backend', count: projects.filter(p => p.category === 'backend').length },
+        { id: 'automation', name: 'Automation', count: projects.filter(p => p.category === 'automation').length },
+        { id: 'ai', name: 'AI', count: projects.filter(p => p.category === 'ai').length }
     ];
 
     const filteredProjects = activeFilter === 'all' 

@@ -75,6 +75,30 @@ const technologies = [
         category: 'Frontend',
         experience: '1 year'
     },
+    {
+        id: 'python',
+        name: 'Python',
+        icon: '/imgs/python.png',
+        description: 'High-level programming language for general-purpose development',
+        category: 'Backend',
+        experience: '1.5 years'
+    },
+    {
+        id: 'gemini',
+        name: 'Gemini',
+        icon: '/imgs/gemini.svg',
+        description: 'Google\'s large language model for natural language processing',
+        category: 'AI',
+        experience: '2 year'
+    },
+    {
+        id: 'n8n',
+        name: 'n8n',
+        icon: '/imgs/n8n-color.png',
+        description: 'Workflow automation tool for connecting different services.',
+        category: 'Automation',
+        experience: '1 year'
+    }
 ];
 
 
@@ -129,6 +153,20 @@ const projects = [
         technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git', 'tailwind'],
         developingTime: '1 month',
     },
+    {
+        projectId: 'workflow-automation',
+        title: "Workflow Automation",
+        description: "Workflow automation tool for connecting different services.",
+        technologies: ["nodejs", "n8n", "sqlserver", "gmail", "outlook"],
+        developingTime: "6 months",
+    },
+    {
+        projectId: 'ai-chatbot',
+        title: "AI Chatbot",
+        description: "AI-powered chatbot for customer support and automation.",
+        technologies: ["python", "langchain", "gemini"],
+        developingTime: "6 months",
+    }
 ];
 
 
@@ -264,7 +302,7 @@ const Abilities = () => {
                         <span className="gradient-text">Technical Expertise</span>
                     </h2>
                     <p className="section-subtitle">
-                        Tecnologías y herramientas que uso para crear soluciones innovadoras.
+                        Technologies and tools I use to create innovative solutions.
                     </p>
                     
                     {/* Instrucción destacada para ver proyectos */}

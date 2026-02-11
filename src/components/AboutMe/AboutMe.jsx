@@ -24,16 +24,6 @@ const AboutMe = () => {
             icon: "🎯"
         }
     ];
-
-    const hobbies = [
-        { name: "Traveling", icon: "✈️" },
-        { name: "Working out", icon: "💪" },
-        { name: "Reading", icon: "📚" },
-        { name: "Gaming", icon: "🎮" },
-        { name: "Guitar", icon: "🎸" },
-        { name: "Movies", icon: "🎬" }
-    ];
-
     return (
         <div className="about-section">
             <div className="about-container">
@@ -45,40 +35,66 @@ const AboutMe = () => {
                                 <span className="badge-dot"></span>
                                 About me
                             </div>
+                            <div className='aboutme-explanation'>
+                                <div className='text-aboutme-explanation'>
+                                    <h1 className="hero-title"> Who am I? </h1>
+                                    <p className='aboutme-description'>
+                                        I am a software engineer with a focus on fullstack development. I have a strong background in problem-solving and team collaboration. I am always looking for new challenges and opportunities to grow as a developer.
+                                    </p>
+                                </div>
+                                <div className='image-aboutme-container'>
+                                    <img className='image-aboutme' src='/imgs/yoformal.png' alt='Profile Picture' />
+                                </div>
+                            </div>
                             <h1 className="hero-title">
+                                How I approach software engineering
+                            </h1>
+                            <div className="approaches-content">
+                                <div className="approach-item">
+                                    <h3 className="approach-title"> 01. Ownership </h3>
+                                    <p className='approach-description'>
+                                        I take responsibility for systems in production, from development to deployment and maintenance.
+                                    </p>
+                                </div>
+                                <div className="approach-item">
+                                    <h3 className="approach-title"> 02. Focus on delivery </h3>
+                                    <p className='approach-description'>
+                                        I value deep work and structured priorities to ensure consistent and predictable delivery.
+                                    </p>
+                                </div>
+                                <div className="approach-item">
+                                    <h3 className="approach-title"> 03. Quality & maintainability </h3>
+                                    <p className='approach-description'>
+                                        I aim to write code that can be understood, maintained, and extended over time.
+                                    </p>
+                                </div>
+                                <div className="approach-item">
+                                    <h3 className="approach-title"> 04. Practical automation </h3>
+                                    <p className='approach-description'>
+                                        I automate repetitive and error-prone processes to improve reliability and visibility.
+                                    </p>
+                                </div>
+                            </div>
+                            <br />
+                            <h1 className="aboutme-subtitle">
                                 Fullstack Software Engineer with ~3 years of experience working on production systems
                             </h1>
-                            <p className="hero-description">
-                              My work focuses on Angular and React frontends, Node.js and Python backends, SQL databases, CI/CD pipelines, and automation. 
-                            <br /> I've worked on internal systems, reporting automation, and AI-powered solutions to improve visibility and decision-making.
+                            <p className="aboutme-hero-description">
+                                My work focuses on Angular and React frontends, Node.js and Python backends, SQL databases, CI/CD pipelines, and automation. 
+                                <br />
+                                I've worked on internal systems, reporting automation, and AI-powered solutions to improve visibility and decision-making. 
+                                I'm interested in roles where autonomy, focus, and technical responsibility are valued.
                             </p>
                             
                             {/* Social Links */}
-                            <div className="social-links">
-                                <a 
-                                    href="https://www.linkedin.com/in/yael-de-leon-b8b11323a/" 
-                                    target="_blank"
-                                    className="social-link hover-lift"
-                                    aria-label="LinkedIn"
-                                >
-                                    <img src="/icons/linkedin.svg" alt="LinkedIn" />
-                                </a>
-                                <a 
-                                    href="https://github.com/yaelmedina32" 
-                                    target="_blank"
-                                    className="social-link hover-lift"
-                                    aria-label="GitHub"
-                                >
-                                    <img src="/icons/github.svg" alt="GitHub" />
-                                </a>
-                                <a 
-                                    href="https://www.instagram.com/yaelmedina01" 
-                                    target="_blank"
-                                    className="social-link hover-lift"
-                                    aria-label="Instagram"
-                                >
-                                    <img src="/icons/instagram.svg" alt="Instagram" />
-                                </a>
+
+                            <h1 className="aboutme-subtitle">
+                                Let's see my projects!
+                            </h1>
+                            <div className='container-projects-button'>
+                                <button className="projects-button">
+                                    View Projects &nbsp;&nbsp; <span className="arrow-icon">→</span>
+                                </button>
                             </div>
                         </div>
                         
@@ -91,52 +107,7 @@ const AboutMe = () => {
                     </div>
                 </section>
 
-                {/* Skills Section */}
-                <section className="skills-section">
-                    <div className="section-header">
-                        <h2 className="section-title">Soft Skills</h2>
-                        <p className="section-subtitle">
-                            Personal qualities that drive my professional success
-                        </p>
-                    </div>
-                    
-                    <div className="skills-grid">
-                        {skills.map((skill, index) => (
-                            <div key={index} className="skill-card hover-lift">
-                                <div className="skill-icon">{skill.icon}</div>
-                                <h3 className="skill-name">{skill.name}</h3>
-                                <p className="skill-description">{skill.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
                 {/* Hobbies Section */}
-                <section className="hobbies-section">
-                    <div className="hobbies-content">
-                        <div className="hobbies-text">
-                            <h2 className="section-title">Beyond Code</h2>
-                            <p className="section-description">
-                                When I'm not coding, you'll find me exploring new places, 
-                                staying active, or diving into a good book. I believe in 
-                                maintaining a healthy work-life balance.
-                            </p>
-                        </div>
-                        
-                        <div className="hobbies-image flex justify-center sm:justify-center md:justify-start lg:justify-end">
-                           
-                            
-                            <div className="hobbies-grid">
-                                {hobbies.map((hobby, index) => (
-                                    <div key={index} className="hobby-item">
-                                        <span className="hobby-icon">{hobby.icon}</span>
-                                        <span className="hobby-name">{hobby.name}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </div>
     );

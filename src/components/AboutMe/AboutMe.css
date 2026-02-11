@@ -61,12 +61,11 @@
   background-clip: text;
 }
 
-.hero-description {
+.aboutme-hero-description {
   font-size: 1.125rem;
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
   line-height: 1.6;
-  max-width: 500px;
 }
 
 /* Social Links */
@@ -272,8 +271,10 @@
   }
   
   .hero-content,
-  .hobbies-content {
-    grid-template-columns: 1fr;
+  .hobbies-content,
+  .approaches-content,
+  .aboutme-explanation {
+    grid-template-columns: 1fr !important;
     gap: 2rem;
     text-align: center;
   }
@@ -322,4 +323,92 @@
     width: 16px;
     height: 16px;
   }
+}
+
+.approaches-content{
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  gap: 2rem;
+}
+
+.approach-item{
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.approach-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-primary);
+  transform: translateY(-4px);
+}
+
+
+.approach-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.aboutme-subtitle{
+  font-size: 2rem;
+  color: var(--text-primary);
+  max-width: 100%;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.projects-button{
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--accent-primary);
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  width: 30%;
+  margin: 0 auto;
+}
+
+.arrow-icon{
+  font-size: 1.25rem;
+}
+
+.container-projects-button{
+  display: flex;
+  justify-content: center;
+}
+
+.projects-button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.6);
+}
+
+.aboutme-explanation{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.image-aboutme-container{
+  width: 40%;
+}
+
+.image-aboutme{
+  width: 100%;
+  border-radius: 70%;
 }
