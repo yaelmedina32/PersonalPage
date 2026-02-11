@@ -2,28 +2,6 @@ import React from 'react';
 import './AboutMe.css';
 
 const AboutMe = () => {
-    const skills = [
-        {
-            name: "Problem Solving",
-            description: "Analytical thinking and creative solutions",
-            icon: "🧩"
-        },
-        {
-            name: "Team Collaboration",
-            description: "Effective communication and teamwork",
-            icon: "🤝"
-        },
-        {
-            name: "Adaptability",
-            description: "Quick learning and flexibility",
-            icon: "🔄"
-        },
-        {
-            name: "Leadership",
-            description: "Project management and mentoring",
-            icon: "🎯"
-        }
-    ];
     return (
         <div className="about-section">
             <div className="about-container">
@@ -39,7 +17,7 @@ const AboutMe = () => {
                                 <div className='text-aboutme-explanation'>
                                     <h1 className="hero-title"> Who am I? </h1>
                                     <p className='aboutme-description'>
-                                        I am a software engineer with a focus on fullstack development. I have a strong background in problem-solving and team collaboration. I am always looking for new challenges and opportunities to grow as a developer.
+                                        I am a Fullstack Software Engineer with ~3 years of experience working on production systems. I have a strong background in problem-solving and team collaboration. I am always looking for new challenges and opportunities to grow as a developer.
                                     </p>
                                 </div>
                                 <div className='image-aboutme-container'>
@@ -76,14 +54,14 @@ const AboutMe = () => {
                                 </div>
                             </div>
                             <br />
+                            
                             <h1 className="aboutme-subtitle">
-                                Fullstack Software Engineer with ~3 years of experience working on production systems
+                                Short technical summary
                             </h1>
                             <p className="aboutme-hero-description">
-                                My work focuses on Angular and React frontends, Node.js and Python backends, SQL databases, CI/CD pipelines, and automation. 
+                                I work with Angular and React on the frontend, Node.js and Python on the backend, SQL databases, CI/CD pipelines, and automation workflows.
                                 <br />
-                                I've worked on internal systems, reporting automation, and AI-powered solutions to improve visibility and decision-making. 
-                                I'm interested in roles where autonomy, focus, and technical responsibility are valued.
+                                I've developed internal systems, reporting automation, and AI-driven solutions that improve operational visibility and decision-making.
                             </p>
                             
                             {/* Social Links */}

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import './Abilities.css';
 
-const technologies = [
+const _TECHNOLOGIES = [
     {
         id: 'angular',
         name: 'Angular',
@@ -109,7 +109,7 @@ const projects = [
         title: 'DCTires',
         description: 'Inventory and sales management system for a tire shop.',
         technologies: ['angular', 'nodejs', 'mysql', 'docker', 'git'],
-        developingTime: '4 months',
+        developingTime: '1.5 years (actual)',
     },
     {
         projectId: 'client-service',
@@ -145,6 +145,11 @@ const projects = [
         description: 'Personal portfolio website showcasing my work.',
         technologies: ['react', 'tailwind'],
         developingTime: '1 week',
+        liveUrl: '/',
+        repoUrl: 'https://github.com/yaelmedina32',
+        caseStudyUrl: '#',
+        highlights: ['Vite', 'Responsive', 'Routing'],
+        keyLearnings: ['Keep content structured']
     },
     {
         projectId: 'ticket-system',
@@ -171,36 +176,15 @@ const projects = [
 
 
 const Abilities = () => {
-    const [selectedTech, setSelectedTech] = useState(null);
-    const [filteredProjects, setFilteredProjects] = useState([]);
+    const [_selectedTech, _setSelectedTech] = useState(null);
+    const [_filteredProjects, _setFilteredProjects] = useState([]);
     const [selectedProject, setSelectedProject] = useState(null);
     const [galleryImages, setGalleryImages] = useState([]);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const projectsRef = useRef(null);
 
-    const handleTechClick = (techId) => {
-        if (selectedTech === techId) {
-            setSelectedTech(null);
-            setFilteredProjects([]);
-        } else {
-            setSelectedTech(techId);
-            const filtered = projects.filter(project => 
-                project.technologies.includes(techId)
-            );
-            setFilteredProjects(filtered);
-            
-            // Auto-scroll hacia la sección de proyectos
-            setTimeout(() => {
-                if (projectsRef.current) {
-                    projectsRef.current.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }, 100); // Pequeño delay para asegurar que el contenido se renderice
-        }
-    };
+    
 
     const loadProjectImages = async (projectId) => {
         try {
@@ -214,7 +198,7 @@ const Abilities = () => {
                     if (response.ok) {
                         images.push(imagePath);
                     }
-                } catch (error) {
+                } catch {
                     // Si no existe la imagen, intentar con .png
                     const pngPath = `/projects/${projectId}/image${i}.jpg`;
                     try {
@@ -222,26 +206,34 @@ const Abilities = () => {
                         if (pngResponse.ok) {
                             images.push(pngPath);
                         }
-                    } catch (pngError) {
+                    } catch {
                         // Continuar con la siguiente imagen
                         continue;
                     }
                 }
             }
-            console.log(images);
             return images;
-        } catch (error) {
-            console.log('Error loading images:', error);
+        } catch {
             return [];
         }
     };
 
     const handleProjectClick = async (project) => {
+        console.log(project);
         setSelectedProject(project);
         const images = await loadProjectImages(project.projectId);
         setGalleryImages(images);
         setCurrentImageIndex(0);
-        setIsGalleryOpen(true);
+    
+        setTimeout(() => {
+            if (projectsRef.current) {
+                projectsRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                    
+                });
+            }
+        }, 100); // Pequeño delay para asegurar que el contenido se renderice
     };
 
     const closeGallery = () => {
@@ -287,7 +279,20 @@ const Abilities = () => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, [isGalleryOpen, galleryImages.length]);
 
-    const categories = [...new Set(technologies.map(tech => tech.category))];
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth <= 1200 : true);
+    useEffect(() => {
+        const onResize = () => setIsMobile(window.innerWidth <= 1200);
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+    const list = _filteredProjects.length > 0 ? _filteredProjects : projects;
+    const chunk = (arr, size) => {
+        const out = [];
+        for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+        return out;
+    };
+
+    
 
     return (
         <section className="abilities-section">
@@ -304,8 +309,7 @@ const Abilities = () => {
                     <p className="section-subtitle">
                         Technologies and tools I use to create innovative solutions.
                     </p>
-                    
-                    {/* Instrucción destacada para ver proyectos */}
+{/*                     
                     <div className="projects-instruction">
                         <div className="instruction-icon">💡</div>
                         <p className="instruction-text">
@@ -313,49 +317,15 @@ const Abilities = () => {
                             <br />
                             Click on any technology to discover the projects where I've used it.
                         </p>
-                    </div>
-                </div>
-
-                {/* Technologies Grid */}
-                <div className="technologies-grid">
-                    {categories.map(category => (
-                        <div key={category} className="category-section">
-                            <h3 className="category-title">{category}</h3>
-                            <div className="tech-cards">
-                                {technologies
-                                    .filter(tech => tech.category === category)
-                                    .map(tech => (
-                                    <div 
-                                        key={tech.id}
-                                        className={`tech-card ${
-                                            selectedTech === tech.id ? 'active' : ''
-                                        }`}
-                                        onClick={() => handleTechClick(tech.id)}
-                                    >
-                                        <div className="tech-icon">
-                                            <img src={tech.icon} alt={tech.name} />
-                                        </div>
-                                        <div className="tech-info">
-                                            <h4 className="tech-name">{tech.name}</h4>
-                                            <p className="tech-description">{tech.description}</p>
-                                            <span className="tech-experience">{tech.experience}</span>
-                                        </div>
-                                        <div className="click-indicator">
-                                            <span>👆 Click to see projects</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                    </div> */}
                 </div>
 
                 {/* Projects Display - Agregamos la referencia aquí */}
                 <div ref={projectsRef}>
-                    {filteredProjects.length > 0 && (
+                    {projects.length > 0 && (
                         <div className="projects-showcase">
                             <h3 className="showcase-title">
-                                🚀 Projects using {technologies.find(t => t.id === selectedTech)?.name}
+                                🚀 Projects I have worked on
                             </h3>
                             <div className="projects-instruction-gallery">
                                 <div className="instruction-icon">📸</div>
@@ -366,112 +336,209 @@ const Abilities = () => {
                                 </p>
                             </div>
                             <div className="projects-grid">
-                                {filteredProjects.map((project, index) => (
-                                    <div 
-                                        key={index} 
-                                        className="project-card cursor-pointer"
-                                        onClick={() => handleProjectClick(project)}
-                                    >
-                                        <div className="project-header">
-                                            <h4 className="project-title">{project.title}</h4>
-                                            <span className="project-duration">{project.developingTime}</span>
-                                        </div>
-                                        <p className="project-description">{project.description}</p>
-                                        <div className="project-tech">
-                                            {project.technologies.map(tech => (
-                                                <span key={tech} className="tech-tag">{tech}</span>
-                                            ))}
-                                        </div>
-                                        {
-                                            project.projectId === 'portfolio' ? (
-                                                null
-                                                
-                                            ) : <div className="project-gallery-hint">
-                                                    <span>🖼️ See Gallery</span>
+                                {isMobile
+                                    ? list.map((project) => (
+                                        <div key={project.projectId}>
+                                            <div 
+                                                className={`project-card cursor-pointer ${selectedProject?.projectId === project.projectId ? 'selected' : ''}`}
+                                                onClick={() => handleProjectClick(project)}
+                                            >
+                                                <div className="project-header">
+                                                    <h4 className="project-title">{project.title}</h4>
+                                                    <span className="project-duration">{project.developingTime}</span>
                                                 </div>
-                                        }
-                                    </div>
-                                ))}
+                                                <p className="project-description">{project.description}</p>
+                                                <div className="project-tech">
+                                                    {project.technologies.map(tech => (
+                                                        <span key={tech} className="tech-tag">{tech}</span>
+                                                    ))}
+                                                </div>
+                                                {project.projectId === 'portfolio' ? null : (
+                                                    <div className="project-gallery-hint">
+                                                        <span>🖼️ See Gallery</span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                            {selectedProject?.projectId === project.projectId ? (
+                                                <>
+                                                    <br />
+                                                    <div className="selected-container">
+                                                        <div className="selected-panel">
+                                                            <div className="selected-header">
+                                                                <h1 className="selected-title">{selectedProject.title}</h1>
+                                                                <div className="selected-actions">
+                                                                    {selectedProject.liveUrl && <a className="selected-button" href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">Live</a>}
+                                                                    {selectedProject.repoUrl && <a className="selected-button" href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer">Repo</a>}
+                                                                    {selectedProject.caseStudyUrl && <a className="selected-button" href={selectedProject.caseStudyUrl} target="_blank" rel="noopener noreferrer">Case study</a>}
+                                                                </div>
+                                                                <button className="selected-close" onClick={closeGallery}>✕</button>
+                                                            </div>
+                                                            <div className="selected-body">
+                                                                <div className="selected-media">
+                                                                    {galleryImages.length > 0 ? (
+                                                                        <>
+                                                                            <img 
+                                                                                src={galleryImages[currentImageIndex]} 
+                                                                                alt={`${selectedProject.title}`} 
+                                                                                className="selected-image" 
+                                                                            />
+                                                                            {galleryImages.length > 1 && (
+                                                                                <>
+                                                                                    <button className="selected-nav selected-prev" onClick={prevImage}>‹</button>
+                                                                                    <button className="selected-nav selected-next" onClick={nextImage}>›</button>
+                                                                                </>
+                                                                            )}
+                                                                        </>
+                                                                    ) : (
+                                                                        <div className="selected-media-placeholder">No image</div>
+                                                                    )}
+                                                                </div>
+                                                                <div className="selected-details">
+                                                                    <ul className="selected-bullets">
+                                                                        <li><span className="label">Problema</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Solución</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
+                                                                        <li><span className="label">Impacto</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
+                                                                    </ul>
+                                                                    <div className="selected-stack">
+                                                                        {selectedProject.technologies.map((tech) => (
+                                                                            <span key={tech} className="tech-tag">{tech}</span>
+                                                                        ))}
+                                                                    </div>
+                                                                    {selectedProject.highlights && (
+                                                                        <ul className="selected-highlights">
+                                                                            {selectedProject.highlights.map((h, i) => <li key={i}>{h}</li>)}
+                                                                        </ul>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                            <div className="selected-footer">
+                                                                {selectedProject.tagsExtra && (
+                                                                    <div className="selected-tags">
+                                                                        {selectedProject.tagsExtra.map((t, i) => <span key={i} className="tag">{t}</span>)}
+                                                                    </div>
+                                                                )}
+                                                                {selectedProject.metrics && (
+                                                                    <div className="selected-metrics">
+                                                                        {selectedProject.metrics.map((m, i) => <span key={i} className="metric">{m}</span>)}
+                                                                    </div>
+                                                                )}
+                                                                {selectedProject.keyLearnings && (
+                                                                    <ul className="selected-learnings">
+                                                                        {selectedProject.keyLearnings.map((l, i) => <li key={i}>{l}</li>)}
+                                                                    </ul>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </>
+                                            ) : null}
+                                        </div>
+                                    ))
+                                    : chunk(list, 3).map((row, rowIndex) => {
+                                        const rowHasSelected = row.some(p => selectedProject?.projectId === p.projectId);
+                                        return (
+                                            <div key={`row-${rowIndex}`} style={{ display: 'contents' }}>
+                                                {row.map((project) => (
+                                                    <div
+                                                        key={project.projectId}
+                                                        className={`project-card cursor-pointer ${selectedProject?.projectId === project.projectId ? 'selected' : ''}`}
+                                                        onClick={() => handleProjectClick(project)}
+                                                    >
+                                                        <div className="project-header">
+                                                            <h4 className="project-title">{project.title}</h4>
+                                                            <span className="project-duration">{project.developingTime}</span>
+                                                        </div>
+                                                        <p className="project-description">{project.description}</p>
+                                                        <div className="project-tech">
+                                                            {project.technologies.map(tech => (
+                                                                <span key={tech} className="tech-tag">{tech}</span>
+                                                            ))}
+                                                        </div>
+                                                        {project.projectId === 'portfolio' ? null : (
+                                                            <div className="project-gallery-hint">
+                                                                <span>🖼️ See Gallery</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                                {rowHasSelected ? (
+                                                    <div className={`selected-container ${selectedProject?.projectId ? 'show' : ''}`} style={{ gridColumn: '1 / -1' }}>
+                                                        <div className="selected-panel">
+                                                            <div className="selected-header">
+                                                                <h1 className="selected-title">{selectedProject.title}</h1>
+                                                                <div className="selected-actions">
+                                                                    {selectedProject.liveUrl && <a className="selected-button" href={selectedProject.liveUrl} target="_blank" rel="noopener noreferrer">Live</a>}
+                                                                    {selectedProject.repoUrl && <a className="selected-button" href={selectedProject.repoUrl} target="_blank" rel="noopener noreferrer">Repo</a>}
+                                                                    {selectedProject.caseStudyUrl && <a className="selected-button" href={selectedProject.caseStudyUrl} target="_blank" rel="noopener noreferrer">Case study</a>}
+                                                                </div>
+                                                                <button className="selected-close" onClick={closeGallery}>✕</button>
+                                                            </div>
+                                                            <div className="selected-body">
+                                                                <div className="selected-media">
+                                                                    {galleryImages.length > 0 ? (
+                                                                        <>
+                                                                            <img 
+                                                                                src={galleryImages[currentImageIndex]} 
+                                                                                alt={`${selectedProject.title}`} 
+                                                                                className="selected-image" 
+                                                                            />
+                                                                            {galleryImages.length > 1 && (
+                                                                                <>
+                                                                                    <button className="selected-nav selected-prev" onClick={prevImage}>‹</button>
+                                                                                    <button className="selected-nav selected-next" onClick={nextImage}>›</button>
+                                                                                </>
+                                                                            )}
+                                                                        </>
+                                                                    ) : (
+                                                                        <div className="selected-media-placeholder">No image</div>
+                                                                    )}
+                                                                </div>
+                                                                <div className="selected-details">
+                                                                    <ul className="selected-bullets">
+                                                                        <li><span className="label">Problema</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Solución</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
+                                                                        <li><span className="label">Impacto</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
+                                                                    </ul>
+                                                                    <div className="selected-stack">
+                                                                        {selectedProject.technologies.map((tech) => (
+                                                                            <span key={tech} className="tech-tag">{tech}</span>
+                                                                        ))}
+                                                                    </div>
+                                                                    {selectedProject.highlights && (
+                                                                        <ul className="selected-highlights">
+                                                                            {selectedProject.highlights.map((h, i) => <li key={i}>{h}</li>)}
+                                                                        </ul>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                            <div className="selected-footer">
+                                                                {selectedProject.tagsExtra && (
+                                                                    <div className="selected-tags">
+                                                                        {selectedProject.tagsExtra.map((t, i) => <span key={i} className="tag">{t}</span>)}
+                                                                    </div>
+                                                                )}
+                                                                {selectedProject.metrics && (
+                                                                    <div className="selected-metrics">
+                                                                        {selectedProject.metrics.map((m, i) => <span key={i} className="metric">{m}</span>)}
+                                                                    </div>
+                                                                )}
+                                                                {selectedProject.keyLearnings && (
+                                                                    <ul className="selected-learnings">
+                                                                        {selectedProject.keyLearnings.map((l, i) => <li key={i}>{l}</li>)}
+                                                                    </ul>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : null}
+                                            </div>
+                                        );
+                                    })}
                             </div>
-                        </div>
-                    )}
-
-                    {/* Mensaje cuando no hay tecnología seleccionada */}
-                    {!selectedTech && (
-                        <div className="no-selection-message">
-                            <div className="message-icon">🎯</div>
-                            <h3>Selecciona una tecnología</h3>
-                            <p>Haz clic en cualquiera de las tecnologías de arriba para ver los proyectos relacionados.</p>
                         </div>
                     )}
                 </div>
             </div>
-
-            {/* Galería Modal */}
-            {isGalleryOpen && selectedProject && (
-                <div className="gallery-modal" onClick={closeGallery}>
-                    <div className="gallery-overlay"></div>
-                    <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
-                        <div className="gallery-header">
-                            <div className="gallery-project-info">
-                                <h3 className="gallery-title">{selectedProject.title}</h3>
-                                <p className="gallery-description">{selectedProject.description}</p>
-                            </div>
-                            <button className="gallery-close" onClick={closeGallery}>
-                                ✕
-                            </button>
-                        </div>
-                        
-                        {galleryImages.length > 0 ? (
-                            <div className="gallery-content">
-                                <div className="gallery-image-container">
-                                    <img 
-                                        src={galleryImages[currentImageIndex]} 
-                                        alt={`${selectedProject.title} - Imagen ${currentImageIndex + 1} - ${galleryImages[currentImageIndex]}`}
-                                        className="gallery-image"
-                                    />
-                                    
-                                    {galleryImages.length > 1 && (
-                                        <>
-                                            <button className="gallery-nav gallery-prev" onClick={prevImage}>
-                                                ‹
-                                            </button>
-                                            <button className="gallery-nav gallery-next" onClick={nextImage}>
-                                                ›
-                                            </button>
-                                        </>
-                                    )}
-                                </div>
-                                
-                                {galleryImages.length > 1 && (
-                                    <div className="gallery-indicators">
-                                        {galleryImages.map((_, index) => (
-                                            <button
-                                                key={index}
-                                                className={`gallery-indicator ${
-                                                    index === currentImageIndex ? 'active' : ''
-                                                }`}
-                                                onClick={() => setCurrentImageIndex(index)}
-                                            ></button>
-                                        ))}
-                                    </div>
-                                )}
-                                
-                                <div className="gallery-counter">
-                                    {currentImageIndex + 1} / {galleryImages.length}
-                                </div>
-                            </div>
-                        ) : (
-                            <div className="gallery-no-images">
-                                <div className="no-images-icon">📷</div>
-                                <h4>No hay imágenes disponibles</h4>
-                                <p>Las imágenes para este proyecto aún no han sido cargadas.</p>
-                                <small>Busca imágenes en: /public/projects/{selectedProject.projectId}/</small>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            )}
         </section>
     );
 };
