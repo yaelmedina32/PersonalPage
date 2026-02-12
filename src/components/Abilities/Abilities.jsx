@@ -56,21 +56,21 @@ const projects = [
         title: 'Ticket Management System',
         description: 'System for managing support tickets in a company.',
         technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git', 'tailwind'],
-        developingTime: '1 month',
+        developingTime: '3 month',
     },
     {
         projectId: 'workflow-automation',
         title: "Workflow Automation",
         description: "Workflow automation tool for connecting different services.",
         technologies: ["nodejs", "n8n", "sqlserver", "gmail", "outlook"],
-        developingTime: "6 months",
+        developingTime: "4 months",
     },
     {
         projectId: 'ai-chatbot',
         title: "AI Chatbot",
         description: "AI-powered chatbot for customer support and automation.",
         technologies: ["python", "langchain", "gemini"],
-        developingTime: "6 months",
+        developingTime: "3 months",
     }
 ];
 
