@@ -1,7 +1,11 @@
 import React from 'react';
 import './AboutMe.css';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const AboutMe = () => {
+    const navigate = useNavigate();
     return (
         <div className="about-section">
             <div className="about-container">
@@ -70,8 +74,8 @@ const AboutMe = () => {
                                 Let's see my projects!
                             </h1>
                             <div className='container-projects-button'>
-                                <button className="projects-button">
-                                    View Projects &nbsp;&nbsp; <span className="arrow-icon">→</span>
+                                <button className="projects-button" onClick={() => navigate('/technologies')}>
+                                    <span className="arrow-icon">View Projects &nbsp;&nbsp; →</span>
                                 </button>
                             </div>
                         </div>

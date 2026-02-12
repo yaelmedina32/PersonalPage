@@ -303,9 +303,13 @@
   .social-links {
     justify-content: center;
   }
+
+  .arrow-icon{
+    font-size: 0.8rem !important;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .skill-card {
     padding: 1.5rem;
   }
@@ -322,6 +326,10 @@
   .social-link img {
     width: 16px;
     height: 16px;
+  }
+
+  .arrow-icon{
+    font-size: 0.8rem !important;
   }
 }
 
