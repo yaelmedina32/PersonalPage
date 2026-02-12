@@ -145,3 +145,18 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 500px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-section {
+    padding: 0 1rem;
+    min-height: 80vh;
+  }
+  .image-container{
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+  }
+}

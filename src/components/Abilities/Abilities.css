@@ -189,6 +189,8 @@
   padding: 1rem;
   grid-column: 1 / -1;
   opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
 .selected-panel {
   display: flex;
@@ -363,10 +365,6 @@
   .selected-header {
     grid-template-columns: 1fr auto;
   }
-}
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .selected-container.show {

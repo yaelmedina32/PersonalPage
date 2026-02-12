@@ -1,106 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './Abilities.css';
 
-const _TECHNOLOGIES = [
-    {
-        id: 'angular',
-        name: 'Angular',
-        icon: '/imgs/Angular.png',
-        description: 'Framework for building dynamic web applications',
-        category: 'Frontend',
-        experience: '3 years'
-    },
-    {
-        id: 'react',
-        name: 'React',
-        icon: '/imgs/React.png',
-        description: 'Library for building user interfaces',
-        category: 'Frontend',
-        experience: '1 year'
-    },
-    {
-        id: 'nodejs',
-        name: 'Node.js',
-        icon: '/imgs/NodeJS.svg',
-        description: 'JavaScript runtime for building APIs and microservices',
-        category: 'Backend',
-        experience: '3 years'
-    },
-    {
-        id: 'mysql',
-        name: 'MySQL',
-        icon: '/imgs/Mysql.png',
-        description: 'Relational database management system',
-        category: 'Database',
-        experience: '2 years'
-    },
-    {
-        id: 'sqlserver',
-        name: 'SQL Server',
-        icon: '/imgs/SqlServer.png',
-        description: 'Microsoft relational database platform',
-        category: 'Database',
-        experience: '3 years'
-    },
-    {
-        id: 'flutter',
-        name: 'Flutter',
-        icon: '/imgs/Flutter.svg',
-        description: 'Cross-platform mobile development framework',
-        category: 'Mobile',
-        experience: '2 years'
-    },
-    {
-        id: 'docker',
-        name: 'Docker',
-        icon: '/imgs/Docker.svg',
-        description: 'Containerization platform for deployment',
-        category: 'DevOps',
-        experience: '1 year'
-    },
-    {
-        id: 'git',
-        name: 'Git',
-        icon: '/imgs/gitlab.svg',
-        description: 'Version control system for code management',
-        category: 'Tools',
-        experience: '3 years'
-    },
-    
-    {
-        id: 'tailwind',
-        name: 'Tailwind CSS',
-        icon: '/imgs/tailwind.png',
-        description: 'Utility-first CSS framework for rapid UI development',
-        category: 'Frontend',
-        experience: '1 year'
-    },
-    {
-        id: 'python',
-        name: 'Python',
-        icon: '/imgs/python.png',
-        description: 'High-level programming language for general-purpose development',
-        category: 'Backend',
-        experience: '1.5 years'
-    },
-    {
-        id: 'gemini',
-        name: 'Gemini',
-        icon: '/imgs/gemini.svg',
-        description: 'Google\'s large language model for natural language processing',
-        category: 'AI',
-        experience: '2 year'
-    },
-    {
-        id: 'n8n',
-        name: 'n8n',
-        icon: '/imgs/n8n-color.png',
-        description: 'Workflow automation tool for connecting different services.',
-        category: 'Automation',
-        experience: '1 year'
-    }
-];
-
 
 
 const projects = [
@@ -362,7 +262,7 @@ const Abilities = () => {
                                             {selectedProject?.projectId === project.projectId ? (
                                                 <>
                                                     <br />
-                                                    <div className="selected-container">
+                                                    <div className={`selected-container ${selectedProject?.projectId ? 'show' : ''}`}>
                                                         <div className="selected-panel">
                                                             <div className="selected-header">
                                                                 <h1 className="selected-title">{selectedProject.title}</h1>
@@ -395,9 +295,9 @@ const Abilities = () => {
                                                                 </div>
                                                                 <div className="selected-details">
                                                                     <ul className="selected-bullets">
-                                                                        <li><span className="label">Problema</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
-                                                                        <li><span className="label">Solución</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
-                                                                        <li><span className="label">Impacto</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
+                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Solution</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
+                                                                        <li><span className="label">Impact</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
                                                                     </ul>
                                                                     <div className="selected-stack">
                                                                         {selectedProject.technologies.map((tech) => (
@@ -495,9 +395,9 @@ const Abilities = () => {
                                                                 </div>
                                                                 <div className="selected-details">
                                                                     <ul className="selected-bullets">
-                                                                        <li><span className="label">Problema</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
-                                                                        <li><span className="label">Solución</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
-                                                                        <li><span className="label">Impacto</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
+                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Solution</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
+                                                                        <li><span className="label">Impact</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
                                                                     </ul>
                                                                     <div className="selected-stack">
                                                                         {selectedProject.technologies.map((tech) => (
