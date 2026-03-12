@@ -8,6 +8,9 @@ const projects = [
         projectId: 'dctires',
         title: 'DCTires',
         description: 'Inventory and sales management system for a tire shop.',
+        issue: 'When the shop had a high volume of sales, was too dificult for them to manage the inventory and sales manually (Just Excel and paper).',
+        solution: 'I developed a web application using Angular and Node.js to manage the inventory and sales. The system allowed the shop to track sales, manage stock, and generate reports in real-time.',
+        impact: 'The shop was able to manage their inventory and sales more efficiently, reducing errors and improving customer satisfaction.',
         technologies: ['angular', 'nodejs', 'mysql', 'docker', 'git'],
         developingTime: '1.5 years (actual)',
     },
@@ -15,6 +18,9 @@ const projects = [
         projectId: 'client-service',
         title: 'Client Service System',
         description: 'System for managing client service requests for a real estate company.',
+        issue: 'The company had a high volume of client service requests, which made it difficult to manage them manually.',
+        solution: 'I developed a web application using React and Node.js to manage the client service requests. The system allowed the company to track requests and assign them to agents.',
+        impact: 'The company was able to manage their client service requests more efficiently, reducing errors and improving customer satisfaction.',
         technologies: ['react', 'nodejs', 'sqlserver', 'git'],
         developingTime: '3 months',
     },
@@ -22,6 +28,9 @@ const projects = [
         projectId: 'soldi-backend',
         title: "Grupo Soldi's Backend",
         description: 'RESTful API for managing the website of Grupo Soldi.',
+        issue: 'The official website was made by 2 sides, one in the front and other in the back, my task was to develop the back-end to upload files as cv`s and other documents, and manage new customers interested in new residential develpoments.',
+        solution: 'I developed a web application using Node.js to manage the client service requests. The system allowed the company to track requests and assign them to agents.',
+        impact: 'The website managed to upload files as cv`s and other documents, and manage new customers interested in new residential develpoments.',
         technologies: ['nodejs', 'sqlserver'],
         developingTime: '2 weeks',
     },
@@ -29,6 +38,9 @@ const projects = [
         projectId: 'erp-soldi',
         title: 'ERP for Grupo Soldi',
         description: 'Enterprise Resource Planning system for Grupo Soldi.',
+        issue: 'The company normally needs changes in the ERP system, so they needed to innoevate the system for new features, like tracking efficiently the construction process, the sales process, and the inventory process.',
+        solution: 'I was able to innovate the ERP system by adding new features like tracking the construction process, the sales process, and the inventory process. The system allowed the company to manage their business processes more efficiently.',
+        impact: 'The CEO and workers of the company were able to know efficiently and manage their business processes, reducing errors and improving customer satisfaction.',
         technologies: ['angular', 'nodejs', 'sqlserver', 'docker', 'git'],
         developingTime: '3 years (actual)',
     },
@@ -37,6 +49,9 @@ const projects = [
         title: 'Mobile ERP',
         description: 'Mobile App for business processes in Grupo Soldi.',
         technologies: ['flutter', 'nodejs', 'sqlserver', 'docker', 'git'],
+        issue: 'The company needed a mobile app to manage their business processes, like tracking the construction process, the sales process, and the inventory process.',
+        solution: 'I innovate the mobile app the have to manage the business processes. The app allowed the company to track the construction process, the sales process, and the inventory process in real-time.',
+        impact: 'The company was able to manage their business processes more efficiently, reducing errors and improving customer satisfaction.',
         developingTime: '2 years (actual)',
     },
     {
@@ -55,6 +70,9 @@ const projects = [
         projectId: 'ticket-system',
         title: 'Ticket Management System',
         description: 'System for managing support tickets in a company.',
+        issue: 'IT departament needed a system to manage support tickets, so they needed to innovate the system for new features, like tracking efficiently the tickets, and assign them to agents.',
+        solution: 'I developed the ticket management system by adding new features like tracking the tickets, and assign them to agents. The system allowed the company to manage their support tickets more efficiently.',
+        impact: 'The IT departament and my co-workers were able to manage the support tickets. As they could use the system as a history of the problems they face normally, they could solve them more quickly.',
         technologies: ['react', 'nodejs', 'sqlserver', 'docker', 'git', 'tailwind'],
         developingTime: '3 month',
     },
@@ -62,6 +80,9 @@ const projects = [
         projectId: 'workflow-automation',
         title: "Workflow Automation",
         description: "Workflow automation tool for connecting different services.",
+        issue: 'The IT departament needed a tool to connect different services, like sending emails, and automating reports. So, they needed to innovate the tool for new features, like sending new emails with reports of the business processes.',
+        solution: 'I developed the workflow automation tool by adding new features like connecting different services, and automating tasks.',
+        impact: 'The IT departament and my co-workers were able to reduce the time they spend making tasks, like sending emails, and automating reports.',
         technologies: ["nodejs", "n8n", "sqlserver", "gmail", "outlook"],
         developingTime: "4 months",
     },
@@ -69,6 +90,9 @@ const projects = [
         projectId: 'ai-chatbot',
         title: "AI Chatbot",
         description: "AI-powered chatbot for customer support and automation.",
+        issue: 'The CEO nedeed to consult the status of the buildings they have, so they needed to innovate the chatbot for new features, like consulting the status of the buildings.',
+        solution: 'I developed an AI chatbot using Python, Langchain, and Gemini. The chatbot allowed the CEO to consult the status of the buildings they have, and get real-time information about the construction process.',
+        impact: 'The CEO and my co-workers were able to reduce the time they spend making tasks, like sending emails, and automating reports. They could get real-time information about the construction process, and make decisions more quickly.',
         technologies: ["python", "langchain", "gemini"],
         developingTime: "3 months",
     }
@@ -295,7 +319,7 @@ const Abilities = () => {
                                                                 </div>
                                                                 <div className="selected-details">
                                                                     <ul className="selected-bullets">
-                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.issue || 'Contexto del proyecto'}</span></li>
                                                                         <li><span className="label">Solution</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
                                                                         <li><span className="label">Impact</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
                                                                     </ul>
@@ -395,8 +419,8 @@ const Abilities = () => {
                                                                 </div>
                                                                 <div className="selected-details">
                                                                     <ul className="selected-bullets">
-                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.problem || 'Contexto del proyecto'}</span></li>
-                                                                        <li><span className="label">Solution</span><span className="value">{selectedProject.solution || selectedProject.description}</span></li>
+                                                                        <li><span className="label">Issue</span><span className="value">{selectedProject.issue || 'Contexto del proyecto'}</span></li>
+                                                                        <li><span className="label">Solution</span><span className="value">{selectedProject.solution || 'ASD'}</span></li>
                                                                         <li><span className="label">Impact</span><span className="value">{selectedProject.impact || 'Resultados y métricas clave'}</span></li>
                                                                     </ul>
                                                                     <div className="selected-stack">

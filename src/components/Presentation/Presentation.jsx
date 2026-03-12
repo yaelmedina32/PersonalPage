@@ -21,7 +21,7 @@ const Presentation = () => {
                         Available for work
                     </div>
                     <h1 className="hero-title">
-                        I am <span className="gradient-text">Gerardo Medina</span>
+                        I am <span className="gradient-text">Yael de León</span>
                         <br />
                     </h1>
                     <p className="hero-description">
