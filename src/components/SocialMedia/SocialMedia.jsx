@@ -17,13 +17,13 @@ const SocialMedia = () => {
             description: 'Professional network',
             color: '#0077b5'
         },
-        {
-            name: 'Instagram',
-            url: 'https://www.instagram.com/yaelmedina01',
-            icon: '/icons/instagram.svg',
-            description: 'Personal moments',
-            color: '#e4405f'
-        }
+        // {
+        //     name: 'Instagram',
+        //     url: 'https://www.instagram.com/yaelmedina01',
+        //     icon: '/icons/instagram.svg',
+        //     description: 'Personal moments',
+        //     color: '#e4405f'
+        // }
     ];
 
     return (
